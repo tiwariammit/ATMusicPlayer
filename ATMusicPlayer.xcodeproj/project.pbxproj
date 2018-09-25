@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F01B55842159E38300BC4374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55832159E38300BC4374 /* AppDelegate.swift */; };
+		F01B55862159E38300BC4374 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55852159E38300BC4374 /* ViewController.swift */; };
+		F01B55892159E38300BC4374 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01B55872159E38300BC4374 /* Main.storyboard */; };
+		F01B558C2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F01B558A2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld */; };
+		F01B558E2159E38600BC4374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F01B558D2159E38600BC4374 /* Assets.xcassets */; };
+		F01B55912159E38600BC4374 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01B558F2159E38600BC4374 /* LaunchScreen.storyboard */; };
+		F01B559C2159E38600BC4374 /* ATMusicPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B559B2159E38600BC4374 /* ATMusicPlayerTests.swift */; };
+		F01B55A72159E38600BC4374 /* ATMusicPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55A62159E38600BC4374 /* ATMusicPlayerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F01B55982159E38600BC4374 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F01B55782159E38300BC4374 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F01B557F2159E38300BC4374;
+			remoteInfo = ATMusicPlayer;
+		};
+		F01B55A32159E38600BC4374 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F01B55782159E38300BC4374 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F01B557F2159E38300BC4374;
+			remoteInfo = ATMusicPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F01B55802159E38300BC4374 /* ATMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01B55832159E38300BC4374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F01B55852159E38300BC4374 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F01B55882159E38300BC4374 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F01B558B2159E38300BC4374 /* ATMusicPlayer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATMusicPlayer.xcdatamodel; sourceTree = "<group>"; };
+		F01B558D2159E38600BC4374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F01B55902159E38600BC4374 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F01B55922159E38600BC4374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F01B55972159E38600BC4374 /* ATMusicPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATMusicPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01B559B2159E38600BC4374 /* ATMusicPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMusicPlayerTests.swift; sourceTree = "<group>"; };
+		F01B559D2159E38600BC4374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F01B55A22159E38600BC4374 /* ATMusicPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATMusicPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01B55A62159E38600BC4374 /* ATMusicPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMusicPlayerUITests.swift; sourceTree = "<group>"; };
+		F01B55A82159E38600BC4374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F01B557D2159E38300BC4374 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01B55942159E38600BC4374 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01B559F2159E38600BC4374 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F01B55772159E38300BC4374 = {
+			isa = PBXGroup;
+			children = (
+				F01B55822159E38300BC4374 /* ATMusicPlayer */,
+				F01B559A2159E38600BC4374 /* ATMusicPlayerTests */,
+				F01B55A52159E38600BC4374 /* ATMusicPlayerUITests */,
+				F01B55812159E38300BC4374 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F01B55812159E38300BC4374 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F01B55802159E38300BC4374 /* ATMusicPlayer.app */,
+				F01B55972159E38600BC4374 /* ATMusicPlayerTests.xctest */,
+				F01B55A22159E38600BC4374 /* ATMusicPlayerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F01B55822159E38300BC4374 /* ATMusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				F01B55832159E38300BC4374 /* AppDelegate.swift */,
+				F01B55852159E38300BC4374 /* ViewController.swift */,
+				F01B55872159E38300BC4374 /* Main.storyboard */,
+				F01B558D2159E38600BC4374 /* Assets.xcassets */,
+				F01B558F2159E38600BC4374 /* LaunchScreen.storyboard */,
+				F01B55922159E38600BC4374 /* Info.plist */,
+				F01B558A2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld */,
+			);
+			path = ATMusicPlayer;
+			sourceTree = "<group>";
+		};
+		F01B559A2159E38600BC4374 /* ATMusicPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F01B559B2159E38600BC4374 /* ATMusicPlayerTests.swift */,
+				F01B559D2159E38600BC4374 /* Info.plist */,
+			);
+			path = ATMusicPlayerTests;
+			sourceTree = "<group>";
+		};
+		F01B55A52159E38600BC4374 /* ATMusicPlayerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F01B55A62159E38600BC4374 /* ATMusicPlayerUITests.swift */,
+				F01B55A82159E38600BC4374 /* Info.plist */,
+			);
+			path = ATMusicPlayerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F01B557F2159E38300BC4374 /* ATMusicPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F01B55AB2159E38600BC4374 /* Build configuration list for PBXNativeTarget "ATMusicPlayer" */;
+			buildPhases = (
+				F01B557C2159E38300BC4374 /* Sources */,
+				F01B557D2159E38300BC4374 /* Frameworks */,
+				F01B557E2159E38300BC4374 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ATMusicPlayer;
+			productName = ATMusicPlayer;
+			productReference = F01B55802159E38300BC4374 /* ATMusicPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F01B55962159E38600BC4374 /* ATMusicPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F01B55AE2159E38600BC4374 /* Build configuration list for PBXNativeTarget "ATMusicPlayerTests" */;
+			buildPhases = (
+				F01B55932159E38600BC4374 /* Sources */,
+				F01B55942159E38600BC4374 /* Frameworks */,
+				F01B55952159E38600BC4374 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F01B55992159E38600BC4374 /* PBXTargetDependency */,
+			);
+			name = ATMusicPlayerTests;
+			productName = ATMusicPlayerTests;
+			productReference = F01B55972159E38600BC4374 /* ATMusicPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F01B55A12159E38600BC4374 /* ATMusicPlayerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F01B55B12159E38600BC4374 /* Build configuration list for PBXNativeTarget "ATMusicPlayerUITests" */;
+			buildPhases = (
+				F01B559E2159E38600BC4374 /* Sources */,
+				F01B559F2159E38600BC4374 /* Frameworks */,
+				F01B55A02159E38600BC4374 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F01B55A42159E38600BC4374 /* PBXTargetDependency */,
+			);
+			name = ATMusicPlayerUITests;
+			productName = ATMusicPlayerUITests;
+			productReference = F01B55A22159E38600BC4374 /* ATMusicPlayerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F01B55782159E38300BC4374 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Amrit Tiwari";
+				TargetAttributes = {
+					F01B557F2159E38300BC4374 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					F01B55962159E38600BC4374 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = F01B557F2159E38300BC4374;
+					};
+					F01B55A12159E38600BC4374 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = F01B557F2159E38300BC4374;
+					};
+				};
+			};
+			buildConfigurationList = F01B557B2159E38300BC4374 /* Build configuration list for PBXProject "ATMusicPlayer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F01B55772159E38300BC4374;
+			productRefGroup = F01B55812159E38300BC4374 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F01B557F2159E38300BC4374 /* ATMusicPlayer */,
+				F01B55962159E38600BC4374 /* ATMusicPlayerTests */,
+				F01B55A12159E38600BC4374 /* ATMusicPlayerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F01B557E2159E38300BC4374 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F01B55912159E38600BC4374 /* LaunchScreen.storyboard in Resources */,
+				F01B558E2159E38600BC4374 /* Assets.xcassets in Resources */,
+				F01B55892159E38300BC4374 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01B55952159E38600BC4374 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01B55A02159E38600BC4374 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F01B557C2159E38300BC4374 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F01B55862159E38300BC4374 /* ViewController.swift in Sources */,
+				F01B55842159E38300BC4374 /* AppDelegate.swift in Sources */,
+				F01B558C2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01B55932159E38600BC4374 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F01B559C2159E38600BC4374 /* ATMusicPlayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01B559E2159E38600BC4374 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F01B55A72159E38600BC4374 /* ATMusicPlayerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F01B55992159E38600BC4374 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F01B557F2159E38300BC4374 /* ATMusicPlayer */;
+			targetProxy = F01B55982159E38600BC4374 /* PBXContainerItemProxy */;
+		};
+		F01B55A42159E38600BC4374 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F01B557F2159E38300BC4374 /* ATMusicPlayer */;
+			targetProxy = F01B55A32159E38600BC4374 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F01B55872159E38300BC4374 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F01B55882159E38300BC4374 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F01B558F2159E38600BC4374 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F01B55902159E38600BC4374 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F01B55A92159E38600BC4374 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F01B55AA2159E38600BC4374 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F01B55AC2159E38600BC4374 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ATMusicPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwariammit.ATMusicPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F01B55AD2159E38600BC4374 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ATMusicPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwariammit.ATMusicPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F01B55AF2159E38600BC4374 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ATMusicPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwariammit.ATMusicPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATMusicPlayer.app/ATMusicPlayer";
+			};
+			name = Debug;
+		};
+		F01B55B02159E38600BC4374 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ATMusicPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwariammit.ATMusicPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATMusicPlayer.app/ATMusicPlayer";
+			};
+			name = Release;
+		};
+		F01B55B22159E38600BC4374 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ATMusicPlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwariammit.ATMusicPlayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ATMusicPlayer;
+			};
+			name = Debug;
+		};
+		F01B55B32159E38600BC4374 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ATMusicPlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwariammit.ATMusicPlayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ATMusicPlayer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F01B557B2159E38300BC4374 /* Build configuration list for PBXProject "ATMusicPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01B55A92159E38600BC4374 /* Debug */,
+				F01B55AA2159E38600BC4374 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F01B55AB2159E38600BC4374 /* Build configuration list for PBXNativeTarget "ATMusicPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01B55AC2159E38600BC4374 /* Debug */,
+				F01B55AD2159E38600BC4374 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F01B55AE2159E38600BC4374 /* Build configuration list for PBXNativeTarget "ATMusicPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01B55AF2159E38600BC4374 /* Debug */,
+				F01B55B02159E38600BC4374 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F01B55B12159E38600BC4374 /* Build configuration list for PBXNativeTarget "ATMusicPlayerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01B55B22159E38600BC4374 /* Debug */,
+				F01B55B32159E38600BC4374 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F01B558A2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F01B558B2159E38300BC4374 /* ATMusicPlayer.xcdatamodel */,
+			);
+			currentVersion = F01B558B2159E38300BC4374 /* ATMusicPlayer.xcdatamodel */;
+			path = ATMusicPlayer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F01B55782159E38300BC4374 /* Project object */;
+}
