@@ -8,13 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		F01B55842159E38300BC4374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55832159E38300BC4374 /* AppDelegate.swift */; };
-		F01B55862159E38300BC4374 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55852159E38300BC4374 /* ViewController.swift */; };
+		F01B55862159E38300BC4374 /* MusicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55852159E38300BC4374 /* MusicListVC.swift */; };
 		F01B55892159E38300BC4374 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01B55872159E38300BC4374 /* Main.storyboard */; };
 		F01B558C2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F01B558A2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld */; };
 		F01B558E2159E38600BC4374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F01B558D2159E38600BC4374 /* Assets.xcassets */; };
 		F01B55912159E38600BC4374 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01B558F2159E38600BC4374 /* LaunchScreen.storyboard */; };
 		F01B559C2159E38600BC4374 /* ATMusicPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B559B2159E38600BC4374 /* ATMusicPlayerTests.swift */; };
 		F01B55A72159E38600BC4374 /* ATMusicPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55A62159E38600BC4374 /* ATMusicPlayerUITests.swift */; };
+		F01B55B82159E50B00BC4374 /* MusicPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55B72159E50B00BC4374 /* MusicPlayerVC.swift */; };
+		F01B55BC2159E58400BC4374 /* demo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01B55B92159E58400BC4374 /* demo2.jpg */; };
+		F01B55BD2159E58400BC4374 /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = F01B55BA2159E58400BC4374 /* demo1.png */; };
+		F01B55BE2159E58400BC4374 /* demo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01B55BB2159E58400BC4374 /* demo3.jpg */; };
+		F01B55C22159E58C00BC4374 /* Baby Be Mine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01B55BF2159E58C00BC4374 /* Baby Be Mine.mp3 */; };
+		F01B55C32159E58C00BC4374 /* Beat It.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01B55C02159E58C00BC4374 /* Beat It.mp3 */; };
+		F01B55C42159E58C00BC4374 /* Billie Jean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01B55C12159E58C00BC4374 /* Billie Jean.mp3 */; };
+		F01B55C62159E59600BC4374 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = F01B55C52159E59600BC4374 /* list.plist */; };
+		F01B55C92159E9B800BC4374 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55C82159E9B800BC4374 /* MusicModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +46,7 @@
 /* Begin PBXFileReference section */
 		F01B55802159E38300BC4374 /* ATMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01B55832159E38300BC4374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F01B55852159E38300BC4374 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F01B55852159E38300BC4374 /* MusicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListVC.swift; sourceTree = "<group>"; };
 		F01B55882159E38300BC4374 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F01B558B2159E38300BC4374 /* ATMusicPlayer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATMusicPlayer.xcdatamodel; sourceTree = "<group>"; };
 		F01B558D2159E38600BC4374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +58,15 @@
 		F01B55A22159E38600BC4374 /* ATMusicPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATMusicPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01B55A62159E38600BC4374 /* ATMusicPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMusicPlayerUITests.swift; sourceTree = "<group>"; };
 		F01B55A82159E38600BC4374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F01B55B72159E50B00BC4374 /* MusicPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerVC.swift; sourceTree = "<group>"; };
+		F01B55B92159E58400BC4374 /* demo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo2.jpg; sourceTree = "<group>"; };
+		F01B55BA2159E58400BC4374 /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo1.png; sourceTree = "<group>"; };
+		F01B55BB2159E58400BC4374 /* demo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo3.jpg; sourceTree = "<group>"; };
+		F01B55BF2159E58C00BC4374 /* Baby Be Mine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Baby Be Mine.mp3"; sourceTree = "<group>"; };
+		F01B55C02159E58C00BC4374 /* Beat It.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Beat It.mp3"; sourceTree = "<group>"; };
+		F01B55C12159E58C00BC4374 /* Billie Jean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Billie Jean.mp3"; sourceTree = "<group>"; };
+		F01B55C52159E59600BC4374 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
+		F01B55C82159E9B800BC4374 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +97,7 @@
 		F01B55772159E38300BC4374 = {
 			isa = PBXGroup;
 			children = (
+				F01B55B42159E3A900BC4374 /* Resource */,
 				F01B55822159E38300BC4374 /* ATMusicPlayer */,
 				F01B559A2159E38600BC4374 /* ATMusicPlayerTests */,
 				F01B55A52159E38600BC4374 /* ATMusicPlayerUITests */,
@@ -100,7 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				F01B55832159E38300BC4374 /* AppDelegate.swift */,
-				F01B55852159E38300BC4374 /* ViewController.swift */,
+				F01B55852159E38300BC4374 /* MusicListVC.swift */,
+				F01B55C82159E9B800BC4374 /* MusicModel.swift */,
+				F01B55B72159E50B00BC4374 /* MusicPlayerVC.swift */,
 				F01B55872159E38300BC4374 /* Main.storyboard */,
 				F01B558D2159E38600BC4374 /* Assets.xcassets */,
 				F01B558F2159E38600BC4374 /* LaunchScreen.storyboard */,
@@ -126,6 +147,36 @@
 				F01B55A82159E38600BC4374 /* Info.plist */,
 			);
 			path = ATMusicPlayerUITests;
+			sourceTree = "<group>";
+		};
+		F01B55B42159E3A900BC4374 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F01B55C52159E59600BC4374 /* list.plist */,
+				F01B55B62159E3DD00BC4374 /* Picture */,
+				F01B55B52159E3B200BC4374 /* Mp3 */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F01B55B52159E3B200BC4374 /* Mp3 */ = {
+			isa = PBXGroup;
+			children = (
+				F01B55BF2159E58C00BC4374 /* Baby Be Mine.mp3 */,
+				F01B55C02159E58C00BC4374 /* Beat It.mp3 */,
+				F01B55C12159E58C00BC4374 /* Billie Jean.mp3 */,
+			);
+			path = Mp3;
+			sourceTree = "<group>";
+		};
+		F01B55B62159E3DD00BC4374 /* Picture */ = {
+			isa = PBXGroup;
+			children = (
+				F01B55BA2159E58400BC4374 /* demo1.png */,
+				F01B55B92159E58400BC4374 /* demo2.jpg */,
+				F01B55BB2159E58400BC4374 /* demo3.jpg */,
+			);
+			path = Picture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +247,11 @@
 				TargetAttributes = {
 					F01B557F2159E38300BC4374 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F01B55962159E38600BC4374 = {
 						CreatedOnToolsVersion = 10.0;
@@ -232,9 +288,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01B55C62159E59600BC4374 /* list.plist in Resources */,
+				F01B55C42159E58C00BC4374 /* Billie Jean.mp3 in Resources */,
 				F01B55912159E38600BC4374 /* LaunchScreen.storyboard in Resources */,
 				F01B558E2159E38600BC4374 /* Assets.xcassets in Resources */,
+				F01B55C32159E58C00BC4374 /* Beat It.mp3 in Resources */,
 				F01B55892159E38300BC4374 /* Main.storyboard in Resources */,
+				F01B55C22159E58C00BC4374 /* Baby Be Mine.mp3 in Resources */,
+				F01B55BC2159E58400BC4374 /* demo2.jpg in Resources */,
+				F01B55BE2159E58400BC4374 /* demo3.jpg in Resources */,
+				F01B55BD2159E58400BC4374 /* demo1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F01B55862159E38300BC4374 /* ViewController.swift in Sources */,
+				F01B55862159E38300BC4374 /* MusicListVC.swift in Sources */,
+				F01B55B82159E50B00BC4374 /* MusicPlayerVC.swift in Sources */,
 				F01B55842159E38300BC4374 /* AppDelegate.swift in Sources */,
+				F01B55C92159E9B800BC4374 /* MusicModel.swift in Sources */,
 				F01B558C2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,14 +501,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = B865P7W52D;
 				INFOPLIST_FILE = ATMusicPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiwariammit.ATMusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = TestDevProvisonalProfile;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,14 +521,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ATMusicPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiwariammit.ATMusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
