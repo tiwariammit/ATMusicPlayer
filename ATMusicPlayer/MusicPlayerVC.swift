@@ -63,7 +63,18 @@ class MusicPlayerVC: UIViewController {
     fileprivate var topPositionOfPlayerView: CGFloat = -70
     
     fileprivate var bottomPositionOfPlayerView: CGFloat {
-        return UIScreen.main.bounds.height + self.topPositionOfPlayerView
+        
+        let appDelagate = UIApplication.shared.delegate as! AppDelegate
+        let window = appDelagate.window
+        
+        var yPosition: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            if let bottom = window?.safeAreaInsets.bottom, bottom > 0{
+                yPosition = bottom
+            }
+        }
+        
+        return UIScreen.main.bounds.height + self.topPositionOfPlayerView - yPosition
     }
     
     fileprivate var gesture : UIPanGestureRecognizer?
@@ -510,6 +521,7 @@ extension MusicPlayerVC : UIGestureRecognizerDelegate{
         let translation = gestureRecognizer.translation( in: self.view)
         let velocity = gestureRecognizer.velocity(in: self.view)
         let y = self.view.frame.minY
+//        let direction = gestureRecognizer.
         
         //translate y postion when drag within topPositionOfPlayerView to bottomPositionOfPlayerView
         if (y + translation.y >= topPositionOfPlayerView) && (y + translation.y <= bottomPositionOfPlayerView) {
@@ -517,24 +529,29 @@ extension MusicPlayerVC : UIGestureRecognizerDelegate{
             self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
             gestureRecognizer.setTranslation(CGPoint(x:0,y:0), in: self.view)
         }
-        if gestureRecognizer.state == .ended {
+        
+        if gestureRecognizer.state != .ended{ return}
+        
+        print("y + translation.y: \(y + translation.y)")
+        print("View Height: \((self.view.frame.height/2) + self.topPositionOfPlayerView/2)")
+        print("velocity: \(velocity.y)")
+
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.allowUserInteraction], animations: {
             
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.allowUserInteraction], animations: {
+            if velocity.y < -500{
+                self.view.frame = CGRect(x: 0, y: self.topPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
+            }else if velocity.y > 500{
+                self.view.frame = CGRect(x: 0, y: self.bottomPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
+            }else{
                 
-                if velocity.y < -500{
+                if y + translation.y <= ((self.view.frame.height/2) + self.topPositionOfPlayerView/2){
+                    
                     self.view.frame = CGRect(x: 0, y: self.topPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
-                }else if velocity.y > 500{
-                    self.view.frame = CGRect(x: 0, y: self.bottomPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
                 }else{
-                    if y + translation.y <= ((self.view.frame.height/2) + self.topPositionOfPlayerView/2){
-                        
-                        self.view.frame = CGRect(x: 0, y: self.topPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
-                    }else{
-                        
-                        self.view.frame = CGRect(x: 0, y: self.bottomPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
-                    }
+                    
+                    self.view.frame = CGRect(x: 0, y: self.bottomPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
                 }
-            }, completion: nil)
-        }
+            }
+        }, completion: nil)
     }
 }
