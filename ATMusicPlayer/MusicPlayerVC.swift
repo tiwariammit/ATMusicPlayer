@@ -403,13 +403,6 @@ extension MusicPlayerVC{
         
         self.prepareAudio()
         self.playAudio()
-        
-        //if self.audioPlayer.isPlaying{
-          //  self.prepareAudio()
-          //  self.playAudio()
-       // }else{
-          //  self.prepareAudio()
-        //}
     }
     
     
@@ -423,15 +416,7 @@ extension MusicPlayerVC{
         
         self.prepareAudio()
         self.playAudio()
-        
-        //if self.audioPlayer.isPlaying{
-         //   self.prepareAudio()
-          //  self.playAudio()
-        //}else{
-        //    self.prepareAudio()
-        //}
     }
-    
 }
 
 
@@ -517,33 +502,30 @@ extension MusicPlayerVC : UIGestureRecognizerDelegate{
         let velocity = gestureRecognizer.velocity(in: self.view)
         let y = self.view.frame.minY
         
-        //translate y postion when drag within fullview to partial view
+        //translate y postion when drag within topPositionOfPlayerView to bottomPositionOfPlayerView
         if (y + translation.y >= topPositionOfPlayerView) && (y + translation.y <= bottomPositionOfPlayerView) {
             
             self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
             gestureRecognizer.setTranslation(CGPoint(x:0,y:0), in: self.view)
         }
         if gestureRecognizer.state == .ended {
-            var duration =  velocity.y < 0 ? Double((y - topPositionOfPlayerView) / -velocity.y) : Double((bottomPositionOfPlayerView - y) / velocity.y )
             
-            duration = duration > 1.5 ? 1 : duration
-            UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
-                if  velocity.y >= 0 {
-                    self.view.frame = CGRect(x: 0, y: self.bottomPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
-                } else {
-                    
-                    self.view.frame = CGRect(x: 0, y: self.topPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
-                }
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.allowUserInteraction], animations: {
                 
+                if velocity.y < -500{
+                    self.view.frame = CGRect(x: 0, y: self.topPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
+                }else if velocity.y > 500{
+                    self.view.frame = CGRect(x: 0, y: self.bottomPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
+                }else{
+                    if y + translation.y <= ((self.view.frame.height/2) + self.topPositionOfPlayerView/2){
+                        
+                        self.view.frame = CGRect(x: 0, y: self.topPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
+                    }else{
+                        
+                        self.view.frame = CGRect(x: 0, y: self.bottomPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
+                    }
+                }
             }, completion: nil)
         }
-    }
-}
-
-
-extension Int{
-    
-    func randRange (lower: Int , upper: Int) -> Int {
-        return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
     }
 }
