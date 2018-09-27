@@ -24,6 +24,10 @@
 		F01B55C42159E58C00BC4374 /* Billie Jean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01B55C12159E58C00BC4374 /* Billie Jean.mp3 */; };
 		F01B55C62159E59600BC4374 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = F01B55C52159E59600BC4374 /* list.plist */; };
 		F01B55C92159E9B800BC4374 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55C82159E9B800BC4374 /* MusicModel.swift */; };
+		F01F0337215CE4D600E03706 /* Dashain Aayo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01F0336215CE4D600E03706 /* Dashain Aayo.mp3 */; };
+		F01F0339215CE52800E03706 /* Lala Parsad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01F0338215CE52800E03706 /* Lala Parsad.mp3 */; };
+		F01F033B215CE59700E03706 /* demo4.png in Resources */ = {isa = PBXBuildFile; fileRef = F01F033A215CE59700E03706 /* demo4.png */; };
+		F01F033D215CE61F00E03706 /* demo5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01F033C215CE61F00E03706 /* demo5.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		F01B55C12159E58C00BC4374 /* Billie Jean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Billie Jean.mp3"; sourceTree = "<group>"; };
 		F01B55C52159E59600BC4374 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
 		F01B55C82159E9B800BC4374 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
+		F01F0336215CE4D600E03706 /* Dashain Aayo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dashain Aayo.mp3"; sourceTree = "<group>"; };
+		F01F0338215CE52800E03706 /* Lala Parsad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lala Parsad.mp3"; sourceTree = "<group>"; };
+		F01F033A215CE59700E03706 /* demo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo4.png; sourceTree = "<group>"; };
+		F01F033C215CE61F00E03706 /* demo5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo5.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				F01B55BF2159E58C00BC4374 /* Baby Be Mine.mp3 */,
+				F01F0338215CE52800E03706 /* Lala Parsad.mp3 */,
+				F01F0336215CE4D600E03706 /* Dashain Aayo.mp3 */,
 				F01B55C02159E58C00BC4374 /* Beat It.mp3 */,
 				F01B55C12159E58C00BC4374 /* Billie Jean.mp3 */,
 			);
@@ -175,6 +185,8 @@
 				F01B55BA2159E58400BC4374 /* demo1.png */,
 				F01B55B92159E58400BC4374 /* demo2.jpg */,
 				F01B55BB2159E58400BC4374 /* demo3.jpg */,
+				F01F033C215CE61F00E03706 /* demo5.jpg */,
+				F01F033A215CE59700E03706 /* demo4.png */,
 			);
 			path = Picture;
 			sourceTree = "<group>";
@@ -294,8 +306,12 @@
 				F01B558E2159E38600BC4374 /* Assets.xcassets in Resources */,
 				F01B55C32159E58C00BC4374 /* Beat It.mp3 in Resources */,
 				F01B55892159E38300BC4374 /* Main.storyboard in Resources */,
+				F01F0339215CE52800E03706 /* Lala Parsad.mp3 in Resources */,
+				F01F0337215CE4D600E03706 /* Dashain Aayo.mp3 in Resources */,
 				F01B55C22159E58C00BC4374 /* Baby Be Mine.mp3 in Resources */,
+				F01F033D215CE61F00E03706 /* demo5.jpg in Resources */,
 				F01B55BC2159E58400BC4374 /* demo2.jpg in Resources */,
+				F01F033B215CE59700E03706 /* demo4.png in Resources */,
 				F01B55BE2159E58400BC4374 /* demo3.jpg in Resources */,
 				F01B55BD2159E58400BC4374 /* demo1.png in Resources */,
 			);

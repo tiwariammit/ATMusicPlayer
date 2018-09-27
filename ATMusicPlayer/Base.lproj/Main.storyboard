@@ -282,7 +282,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zH4-ko-HBA" firstAttribute="bottom" secondItem="hBT-DN-enm" secondAttribute="bottom" constant="30" id="0Ju-LK-n2U"/>
                             <constraint firstItem="wwy-XW-ZFK" firstAttribute="top" secondItem="6vp-m8-rNB" secondAttribute="bottom" id="2ye-J2-XL0"/>
                             <constraint firstItem="cwD-Bq-Z8o" firstAttribute="centerY" secondItem="6vp-m8-rNB" secondAttribute="centerY" id="36v-Yd-ZmO"/>
                             <constraint firstItem="Qof-pu-A0G" firstAttribute="top" secondItem="Kso-TJ-OuZ" secondAttribute="bottom" constant="22" id="3c2-8R-NfG"/>
@@ -303,6 +302,7 @@
                             <constraint firstItem="Kso-TJ-OuZ" firstAttribute="centerX" secondItem="zH4-ko-HBA" secondAttribute="centerX" id="aw6-XT-7ea"/>
                             <constraint firstItem="hBT-DN-enm" firstAttribute="leading" secondItem="zH4-ko-HBA" secondAttribute="leading" constant="40" id="bA4-Ud-8ws"/>
                             <constraint firstItem="jkJ-ZA-hAV" firstAttribute="leading" secondItem="zH4-ko-HBA" secondAttribute="leading" constant="40" id="dEI-MR-aGv"/>
+                            <constraint firstItem="zH4-ko-HBA" firstAttribute="bottom" secondItem="hBT-DN-enm" secondAttribute="bottom" constant="30" id="dHl-Oj-eqx"/>
                             <constraint firstItem="I2T-WC-ZcU" firstAttribute="top" secondItem="Qof-pu-A0G" secondAttribute="bottom" constant="48" id="fGu-R3-alc"/>
                             <constraint firstItem="AWy-01-ttI" firstAttribute="top" secondItem="YZS-io-dte" secondAttribute="top" id="fyc-lB-KmU"/>
                             <constraint firstItem="acz-uC-IV8" firstAttribute="bottom" secondItem="zH4-ko-HBA" secondAttribute="bottom" id="gWz-M5-hb4"/>
@@ -365,13 +365,13 @@
     </scenes>
     <resources>
         <image name="downArrow" width="60" height="60"/>
-        <image name="next" width="103.19999694824219" height="103.19999694824219"/>
-        <image name="play" width="142.39999389648438" height="142.39999389648438"/>
-        <image name="previous" width="103.19999694824219" height="103.19999694824219"/>
-        <image name="repeat" width="22.399999618530273" height="23.200000762939453"/>
+        <image name="next" width="64" height="64"/>
+        <image name="play" width="33" height="46"/>
+        <image name="previous" width="64" height="64"/>
+        <image name="repeat" width="58" height="64"/>
         <image name="repeat_s.png" width="16" height="16"/>
         <image name="shadow.png" width="16" height="16"/>
-        <image name="shuffle" width="25.600000381469727" height="20.799999237060547"/>
+        <image name="shuffle" width="64" height="38"/>
         <image name="shuffle_s.png" width="16" height="16"/>
     </resources>
 </document>

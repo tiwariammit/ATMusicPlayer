@@ -32,5 +32,25 @@
 		<key>albumArtwork</key>
 		<string>demo3.jpg</string>
 	</dict>
+	<dict>
+		<key>artistName</key>
+		<string>Ram Parsad Yadav</string>
+		<key>albumName</key>
+		<string>Allu Parsad Jadav</string>
+		<key>songName</key>
+		<string>Lala Parsad</string>
+		<key>albumArtwork</key>
+		<string>demo4.png</string>
+	</dict>
+	<dict>
+		<key>artistName</key>
+		<string>Amrit Tiwari</string>
+		<key>albumName</key>
+		<string>Masu Bhat</string>
+		<key>songName</key>
+		<string>Dashain Aayo</string>
+		<key>albumArtwork</key>
+		<string>demo5.jpg</string>
+	</dict>
 </array>
 </plist>

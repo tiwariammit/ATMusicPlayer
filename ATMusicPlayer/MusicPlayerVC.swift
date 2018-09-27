@@ -54,20 +54,35 @@ class MusicPlayerVC: UIViewController {
     public var audioList : [AudioDetails] = []
     public var currentAudioIndex = 0
     
-    public var dismissTrigger: (()->())?
-    
     fileprivate var blurEffectView : UIVisualEffectView = UIVisualEffectView.init(frame: CGRect.zero)
     fileprivate var audioPlayer: AVAudioPlayer = AVAudioPlayer()
     fileprivate var currentAudioPath:URL!
     fileprivate var timerToTrackAudioActivities  : Timer?
     fileprivate var shuffleAudioListIndexArray = [Int]()
     
+    fileprivate var topPositionOfPlayerView: CGFloat = -70
+    
+    fileprivate var bottomPositionOfPlayerView: CGFloat {
+        return UIScreen.main.bounds.height + self.topPositionOfPlayerView
+    }
+    
+    fileprivate var gesture : UIPanGestureRecognizer?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.btnShuffle.isSelected = false
         self.btnRepeat.isSelected = false
+        self.addGuesture()
+        self.assingSliderUI()
+
+        //LockScreen Media control registry
+        if UIApplication.shared.responds(to: #selector(UIApplication.beginReceivingRemoteControlEvents)){
+            UIApplication.shared.beginReceivingRemoteControlEvents()
+            UIApplication.shared.beginBackgroundTask(expirationHandler: { () -> Void in
+            })
+        }
     }
     
     
@@ -79,15 +94,6 @@ class MusicPlayerVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.prepareAudio()
-        self.assingSliderUI()
-        
-        //LockScreen Media control registry
-        if UIApplication.shared.responds(to: #selector(UIApplication.beginReceivingRemoteControlEvents)){
-            UIApplication.shared.beginReceivingRemoteControlEvents()
-            UIApplication.shared.beginBackgroundTask(expirationHandler: { () -> Void in
-            })
-        }
         
 //        let commandCenter = MPRemoteCommandCenter.shared()
 //        if #available(iOS 9.1, *) {
@@ -96,9 +102,17 @@ class MusicPlayerVC: UIViewController {
 //        } else {
 //            // Fallback on earlier versions
 //        }
-
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.07, options: [.beginFromCurrentState], animations: {
+            
+            self.view.frame = CGRect(x: 0, y: self.topPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height - self.topPositionOfPlayerView)
+            
+        }, completion: nil)
+        
+        self.prepareAudio()
         playAudio()
-        self.startTimerToTrackAudioActivities()
+
     }
     
     
@@ -109,12 +123,23 @@ class MusicPlayerVC: UIViewController {
         self.timerToTrackAudioActivities = nil
     }
     
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        self.view.layoutIfNeeded()
     }
+    
     
     deinit {
         print("musicPlayerVC deinitiallized")
+    }
+    
+    private func addGuesture(){
+        
+        gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragging(_:)))
+        self.view.addGestureRecognizer(gesture!)
+        self.view.isUserInteractionEnabled = true
+        gesture?.delegate = self
     }
     
     fileprivate func blurEffect(_ imageView : UIImageView) {
@@ -195,15 +220,22 @@ class MusicPlayerVC: UIViewController {
     //MARK:-Actions
     
     @IBAction func btnDismissTouched(_ sender: Any) {
-        self.dismissTrigger?()
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.07, options: [.beginFromCurrentState], animations: {[weak self]  in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.view.frame = CGRect(x: 0, y: strongSelf.bottomPositionOfPlayerView, width: strongSelf.view.frame.width, height: strongSelf.view.frame.height)
+
+        }, completion: nil)
     }
     
     
     @IBAction func btnShuffleTouched(_ sender: UIButton) {
         
         shuffleAudioListIndexArray.removeAll()
-        
         sender.isSelected = !sender.isSelected
+        
+        _ = sender.isSelected ? "\(sender.setImage(UIImage(named: "shuffle_s"), for: UIControl.State()))" : "\(sender.setImage(UIImage(named: "shuffle"), for: UIControl.State()))"
     }
     
     
@@ -244,6 +276,8 @@ class MusicPlayerVC: UIViewController {
     @IBAction func btnRepeatTouched(_ sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
+        _ = sender.isSelected ? "\(sender.setImage(UIImage(named: "repeat_s"), for: .normal))" : "\(sender.setImage(UIImage(named: "repeat"), for: .normal))"
+
     }
 }
 
@@ -299,9 +333,6 @@ extension MusicPlayerVC{
     // Prepare audio for playing
     func prepareAudio(){
         
-        self.setCurrentAudioPath()
-        self.startTimerToTrackAudioActivities()
-        
         do {
             if #available(iOS 10.0, *) {
                 try AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
@@ -310,14 +341,15 @@ extension MusicPlayerVC{
                 AVAudioSession.sharedInstance().perform(NSSelectorFromString("setCategory:error:"), with: AVAudioSession.Category.playback)
             }
         }
-        catch {
-            // report for an error
-        }
+        catch {}
         
         do {
             try AVAudioSession.sharedInstance().setActive(true)
-        } catch _ {
-        }
+        } catch _ {}
+        
+        self.setCurrentAudioPath()
+        self.startTimerToTrackAudioActivities()
+        
         
         UIApplication.shared.beginReceivingRemoteControlEvents()
         self.audioPlayer = try! AVAudioPlayer(contentsOf: currentAudioPath)
@@ -351,9 +383,9 @@ extension MusicPlayerVC{
     //MARK:- Player Controls Methods
     func playAudio(){
         
-        audioPlayer.play()
-        updateLabels()
-        showMediaInfo()
+        self.audioPlayer.play()
+        self.updateLabels()
+        self.showMediaInfo()
         _ = audioPlayer.isPlaying ? "\(self.setPlayImageInPlayButton(false), for: UIControl.State()))" : "\(self.setPlayImageInPlayButton(true))"
         MPMusicPlayerController.applicationMusicPlayer.play()
 //        MPRemoteCommandCenter.shared().nex
@@ -362,34 +394,42 @@ extension MusicPlayerVC{
     
     func playNextAudio(){
         
-        currentAudioIndex += 1
-        if currentAudioIndex>audioList.count-1{
-            currentAudioIndex -= 1
+        self.currentAudioIndex += 1
+        if self.currentAudioIndex>self.audioList.count-1{
+            self.currentAudioIndex -= 1
             
             return
         }
-        if audioPlayer.isPlaying{
-            prepareAudio()
-            playAudio()
-        }else{
-            prepareAudio()
-        }
+        
+        self.prepareAudio()
+        self.playAudio()
+        
+        //if self.audioPlayer.isPlaying{
+          //  self.prepareAudio()
+          //  self.playAudio()
+       // }else{
+          //  self.prepareAudio()
+        //}
     }
     
     
     func playPreviousAudio(){
         
-        currentAudioIndex -= 1
-        if currentAudioIndex<0{
-            currentAudioIndex += 1
+        self.currentAudioIndex -= 1
+        if self.currentAudioIndex<0{
+            self.currentAudioIndex += 1
             return
         }
-        if audioPlayer.isPlaying{
-            prepareAudio()
-            playAudio()
-        }else{
-            prepareAudio()
-        }
+        
+        self.prepareAudio()
+        self.playAudio()
+        
+        //if self.audioPlayer.isPlaying{
+         //   self.prepareAudio()
+          //  self.playAudio()
+        //}else{
+        //    self.prepareAudio()
+        //}
     }
     
 }
@@ -463,5 +503,47 @@ extension MusicPlayerVC : AVAudioPlayerDelegate{
 //                print("There is an issue with the control")
             }
         }
+    }
+}
+
+
+//MARK:-Animations
+extension MusicPlayerVC : UIGestureRecognizerDelegate{
+    
+    //MARK:- add animation while dragging view
+    @objc func wasDragging(_ gestureRecognizer: UIPanGestureRecognizer) {
+        
+        let translation = gestureRecognizer.translation( in: self.view)
+        let velocity = gestureRecognizer.velocity(in: self.view)
+        let y = self.view.frame.minY
+        
+        //translate y postion when drag within fullview to partial view
+        if (y + translation.y >= topPositionOfPlayerView) && (y + translation.y <= bottomPositionOfPlayerView) {
+            
+            self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
+            gestureRecognizer.setTranslation(CGPoint(x:0,y:0), in: self.view)
+        }
+        if gestureRecognizer.state == .ended {
+            var duration =  velocity.y < 0 ? Double((y - topPositionOfPlayerView) / -velocity.y) : Double((bottomPositionOfPlayerView - y) / velocity.y )
+            
+            duration = duration > 1.5 ? 1 : duration
+            UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
+                if  velocity.y >= 0 {
+                    self.view.frame = CGRect(x: 0, y: self.bottomPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
+                } else {
+                    
+                    self.view.frame = CGRect(x: 0, y: self.topPositionOfPlayerView, width: self.view.frame.width, height: self.view.frame.height)
+                }
+                
+            }, completion: nil)
+        }
+    }
+}
+
+
+extension Int{
+    
+    func randRange (lower: Int , upper: Int) -> Int {
+        return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
     }
 }
