@@ -218,6 +218,15 @@ class MusicPlayerVC: UIViewController {
     
     
     //MARK:-Actions
+    @IBAction func topPlayerViewTouched(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.07, options: [.beginFromCurrentState], animations: {[weak self]  in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.view.frame = CGRect(x: 0, y: strongSelf.topPositionOfPlayerView, width: strongSelf.view.frame.width, height: strongSelf.view.frame.height)
+            
+            }, completion: nil)
+    }
     
     @IBAction func btnDismissTouched(_ sender: Any) {
         

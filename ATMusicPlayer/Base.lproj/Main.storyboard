@@ -198,7 +198,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWy-01-ttI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Cn-aJ-SRU">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Cn-aJ-SRU" customClass="UIControl">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lwY-JE-iku">
@@ -268,6 +268,9 @@
                                             <constraint firstItem="poP-1J-bGS" firstAttribute="centerY" secondItem="0Cn-aJ-SRU" secondAttribute="centerY" id="uMJ-0D-oUA"/>
                                             <constraint firstItem="PGK-oy-T95" firstAttribute="height" secondItem="Rly-sV-mgq" secondAttribute="height" id="yBL-dj-cWC"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="topPlayerViewTouched:" destination="w6y-je-UL3" eventType="touchUpInside" id="7pF-oR-vyW"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -364,14 +367,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="downArrow" width="60" height="60"/>
+        <image name="downArrow" width="64" height="64"/>
         <image name="next" width="64" height="64"/>
-        <image name="play" width="33" height="46"/>
+        <image name="play" width="64" height="64"/>
         <image name="previous" width="64" height="64"/>
-        <image name="repeat" width="58" height="64"/>
+        <image name="repeat" width="64" height="64"/>
         <image name="repeat_s.png" width="16" height="16"/>
         <image name="shadow.png" width="16" height="16"/>
-        <image name="shuffle" width="64" height="38"/>
+        <image name="shuffle" width="64" height="64"/>
         <image name="shuffle_s.png" width="16" height="16"/>
     </resources>
 </document>
