@@ -44,7 +44,8 @@ class MusicPlayerVC: UIViewController {
     
     fileprivate var blurEffectView : UIVisualEffectView = UIVisualEffectView.init(frame: CGRect.zero)
     fileprivate var audioPlayer: AVAudioPlayer = AVAudioPlayer()
-    fileprivate var currentAudioPath:URL!
+
+    fileprivate var currentAudioPath: String = ""
     fileprivate var timerToTrackAudioActivities  : Timer?
     fileprivate var shuffleAudioListIndexArray = [Int]()
     
@@ -67,6 +68,8 @@ class MusicPlayerVC: UIViewController {
     
     fileprivate var gesture : UIPanGestureRecognizer?
 
+//   fileprivate let dmManager = DownloadMusicManager.shared()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +78,8 @@ class MusicPlayerVC: UIViewController {
         self.btnRepeat.isSelected = false
         self.addGuesture()
         self.assingSliderUI()
-
+//        self.prepareAudio()
+        
         //LockScreen Media control registry
         if UIApplication.shared.responds(to: #selector(UIApplication.beginReceivingRemoteControlEvents)){
             UIApplication.shared.beginReceivingRemoteControlEvents()
@@ -88,20 +92,14 @@ class MusicPlayerVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.prepareAudio()
+        self.playAudio()
+        self.startTimerToTrackAudioActivities()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-//        let commandCenter = MPRemoteCommandCenter.shared()
-//        if #available(iOS 9.1, *) {
-//            commandCenter.changePlaybackPositionCommand.isEnabled = true
-//            commandCenter.changePlaybackPositionCommand.addTarget(self, action:#selector(self.changePlaybackPositionCommand(_:)))
-//        } else {
-//            // Fallback on earlier versions
-//        }
-        
+
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.07, options: [.beginFromCurrentState], animations: {
             
@@ -109,8 +107,7 @@ class MusicPlayerVC: UIViewController {
             
         }, completion: nil)
         
-        self.prepareAudio()
-        playAudio()
+//        self.playAudio()
 
     }
     
@@ -206,13 +203,14 @@ class MusicPlayerVC: UIViewController {
     }
     
     @objc fileprivate func timerToTrackAudioActivitiesTrigger(_ tm : Timer){
+       
+        
         if !self.audioPlayer.isPlaying{
             return
         }
         let time = calculateTimeFromNSTimeInterval(audioPlayer.currentTime)
         self.lblCurrentDuration.text  = "\(time.minute):\(time.second)"
         self.audioSlider.value = CFloat(audioPlayer.currentTime)
-        MPMusicPlayerController.applicationMusicPlayer.play()
     }
     
     
@@ -335,15 +333,19 @@ extension MusicPlayerVC{
     //Sets audio file URL
     func setCurrentAudioPath(){
         let currentAudio = self.audioList[self.currentAudioIndex].songName
-        self.currentAudioPath = URL(fileURLWithPath: Bundle.main.path(forResource: currentAudio, ofType: "mp3")!)
+        self.currentAudioPath = Bundle.main.path(forResource: currentAudio, ofType: "mp3") ?? ""
+        
+//        self.currentAudioPath = URL(fileURLWithPath: "file:///var/mobile/Containers/Data/Application/44617FC2-15AF-449D-9BAA-C6E31628187D/Documents/iPhone_5-Alarm.mp3")
     }
     
     
     
     // Prepare audio for playing
     func prepareAudio(){
-        
+        self.setCurrentAudioPath()
+
         do {
+
             if #available(iOS 10.0, *) {
                 try AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
             }
@@ -357,32 +359,32 @@ extension MusicPlayerVC{
             try AVAudioSession.sharedInstance().setActive(true)
         } catch _ {}
         
-        self.setCurrentAudioPath()
-        self.startTimerToTrackAudioActivities()
-        
         
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
         do{
-            self.audioPlayer = try AVAudioPlayer(contentsOf: currentAudioPath)
-            self.audioPlayer.prepareToPlay()
-            self.audioPlayer.play()
-        }catch let error{
             
+            let pathUrl  = URL(fileURLWithPath: self.currentAudioPath)
+            self.audioPlayer = try! AVAudioPlayer(contentsOf: pathUrl)
+
+        }catch let error{
             print(error)
         }
         self.audioPlayer.delegate = self
+        
         self.audioSlider.maximumValue = CFloat(audioPlayer.duration)
         self.audioSlider.minimumValue = 0.0
         self.audioSlider.value = 0.0
         
-        let time = calculateTimeFromNSTimeInterval(audioPlayer.duration)
+        self.audioPlayer.prepareToPlay()
+
+        let time = calculateTimeFromNSTimeInterval(self.audioPlayer.duration)
         let totalLengthOfAudio = "\(time.minute):\(time.second)"
         self.lblTotalDuration.text = totalLengthOfAudio
         self.lblCurrentDuration.text = "00:00"
 
         self.updateLabels()
-        
+
         self.btnPrevious.isHidden = false
         self.btnTopPrevious.isHidden = false
         self.btnNext.isHidden = false
@@ -404,18 +406,8 @@ extension MusicPlayerVC{
         self.updateLabels()
         self.showMediaInfo()
         _ = audioPlayer.isPlaying ? "\(self.setPlayImageInPlayButton(false), for: UIControl.State()))" : "\(self.setPlayImageInPlayButton(true))"
-        MPMusicPlayerController.applicationMusicPlayer.play()
-        
-        let commandCenter = MPRemoteCommandCenter.shared();
-        commandCenter.playCommand.isEnabled = true
-        commandCenter.playCommand.addTarget {event in
-            self.audioPlayer.play()
-            return .success
-        }
-        
-        
-        let infoCenter = MPNowPlayingInfoCenter.default()
-        infoCenter.playbackState = .playing
+//        MPMusicPlayerController.applicationMusicPlayer.play()
+
     }
     
     
@@ -527,7 +519,6 @@ extension MusicPlayerVC : UIGestureRecognizerDelegate{
         let translation = gestureRecognizer.translation( in: self.view)
         let velocity = gestureRecognizer.velocity(in: self.view)
         let y = self.view.frame.minY
-//        let direction = gestureRecognizer.
         
         //translate y postion when drag within topPositionOfPlayerView to bottomPositionOfPlayerView
         if (y + translation.y >= topPositionOfPlayerView) && (y + translation.y <= bottomPositionOfPlayerView) {
@@ -538,9 +529,9 @@ extension MusicPlayerVC : UIGestureRecognizerDelegate{
         
         if gestureRecognizer.state != .ended{ return}
         
-        print("y + translation.y: \(y + translation.y)")
-        print("View Height: \((self.view.frame.height/2) + self.topPositionOfPlayerView/2)")
-        print("velocity: \(velocity.y)")
+//        print("y + translation.y: \(y + translation.y)")
+//        print("View Height: \((self.view.frame.height/2) + self.topPositionOfPlayerView/2)")
+//        print("velocity: \(velocity.y)")
 
         UIView.animate(withDuration: 0.1, delay: 0.0, options: [.allowUserInteraction], animations: {
             

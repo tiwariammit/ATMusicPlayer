@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F00F8AD6215E2E9E00022047 /* DownloadMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00F8AD5215E2E9E00022047 /* DownloadMusic.swift */; };
 		F01B55842159E38300BC4374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55832159E38300BC4374 /* AppDelegate.swift */; };
 		F01B55862159E38300BC4374 /* MusicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55852159E38300BC4374 /* MusicListVC.swift */; };
 		F01B55892159E38300BC4374 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01B55872159E38300BC4374 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F00F8AD5215E2E9E00022047 /* DownloadMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadMusic.swift; sourceTree = "<group>"; };
 		F01B55802159E38300BC4374 /* ATMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01B55832159E38300BC4374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F01B55852159E38300BC4374 /* MusicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListVC.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				F01B55852159E38300BC4374 /* MusicListVC.swift */,
 				F01B55C82159E9B800BC4374 /* MusicModel.swift */,
 				F01B55B72159E50B00BC4374 /* MusicPlayerVC.swift */,
+				F00F8AD5215E2E9E00022047 /* DownloadMusic.swift */,
 				F01B55872159E38300BC4374 /* Main.storyboard */,
 				F01B558D2159E38600BC4374 /* Assets.xcassets */,
 				F01B558F2159E38600BC4374 /* LaunchScreen.storyboard */,
@@ -341,6 +344,7 @@
 				F01B55862159E38300BC4374 /* MusicListVC.swift in Sources */,
 				F01B55B82159E50B00BC4374 /* MusicPlayerVC.swift in Sources */,
 				F01B55842159E38300BC4374 /* AppDelegate.swift in Sources */,
+				F00F8AD6215E2E9E00022047 /* DownloadMusic.swift in Sources */,
 				F01B55C92159E9B800BC4374 /* MusicModel.swift in Sources */,
 				F01B558C2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld in Sources */,
 			);

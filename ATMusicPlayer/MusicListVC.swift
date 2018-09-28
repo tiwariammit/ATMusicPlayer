@@ -36,6 +36,11 @@ class MusicListVC: UIViewController {
             strongSelf.setUpMusicPlayerVC()
         }
         
+        let dmManager = DownloadMusicManager.shared()
+        let urlString = "http://freetone.org/ring/stan/iPhone_5-Alarm.mp3"
+        let url = URL(string: urlString)
+        dmManager.download(url!)
+        
     }
     
     private func setUpMusicPlayerVC(){
