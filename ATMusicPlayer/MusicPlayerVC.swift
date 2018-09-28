@@ -11,22 +11,10 @@ import AVFoundation
 import MediaPlayer
 
 
-struct UserdefaultKeys {
-    
-    struct AudioPlayer {
-        static let shuffleAudioPlayer = "audioPlayeIsInShuffleState"
-        static let repeatedAudioPlayer = "audioPlayeIsInRepeatState"
-        static let currentAudioIndexOfAudioPlayer = "currentAudioIndexOfAudioPlayer"
-    }
-}
-
-
 class MusicPlayerVC: UIViewController {
     
     
     @IBOutlet weak var backgroundImageView: UIImageView!
-    
-    //@IBOutlet weak var blurView: UIVisualEffectView!
     
     @IBOutlet weak var albumArtworkImageView: UIImageView!
     
@@ -204,9 +192,9 @@ class MusicPlayerVC: UIViewController {
         let maxImage = UIImage(named: "slider-track")
         let thumb = UIImage(named: "thumb")
         
-        audioSlider.setMinimumTrackImage(minImage, for: UIControl.State())
-        audioSlider.setMaximumTrackImage(maxImage, for: UIControl.State())
-        audioSlider.setThumbImage(thumb, for: UIControl.State())
+        self.audioSlider.setMinimumTrackImage(minImage, for: UIControl.State())
+        self.audioSlider.setMaximumTrackImage(maxImage, for: UIControl.State())
+        self.audioSlider.setThumbImage(thumb, for: UIControl.State())
     }
     
     fileprivate func startTimerToTrackAudioActivities(){
@@ -225,6 +213,20 @@ class MusicPlayerVC: UIViewController {
         self.lblCurrentDuration.text  = "\(time.minute):\(time.second)"
         self.audioSlider.value = CFloat(audioPlayer.currentTime)
         MPMusicPlayerController.applicationMusicPlayer.play()
+    }
+    
+    
+    fileprivate func setPlayImageInPlayButton(_ isPlay : Bool){
+        
+        if isPlay{
+            let playImage = UIImage(named: "play")
+            self.btnPlayPause.setImage(playImage, for: UIControl.State())
+            self.btnTopPlayPause.setImage(playImage, for: UIControl.State())
+        }else{
+            let pauseImage = UIImage(named: "pause")
+            self.btnPlayPause.setImage(pauseImage, for: UIControl.State())
+            self.btnTopPlayPause.setImage(pauseImage, for: UIControl.State())
+        }
     }
     
     
@@ -252,7 +254,7 @@ class MusicPlayerVC: UIViewController {
     
     @IBAction func btnShuffleTouched(_ sender: UIButton) {
         
-        shuffleAudioListIndexArray.removeAll()
+        self.shuffleAudioListIndexArray.removeAll()
         sender.isSelected = !sender.isSelected
         
         _ = sender.isSelected ? "\(sender.setImage(UIImage(named: "shuffle_s"), for: UIControl.State()))" : "\(sender.setImage(UIImage(named: "shuffle"), for: UIControl.State()))"
@@ -261,8 +263,8 @@ class MusicPlayerVC: UIViewController {
     
     @IBAction func btnPlayPauseTouched(_ sender : AnyObject) {
         
-        _ = audioPlayer.isPlaying ? "\(audioPlayer.pause())" : "\(audioPlayer.play())"
-        _ = audioPlayer.isPlaying ? "\(self.setPlayImageInPlayButton(false))" : "\(self.setPlayImageInPlayButton(true)))"
+        _ = self.audioPlayer.isPlaying ? "\(self.audioPlayer.pause())" : "\(self.audioPlayer.play())"
+        _ = self.audioPlayer.isPlaying ? "\(self.setPlayImageInPlayButton(false))" : "\(self.setPlayImageInPlayButton(true)))"
     }
     
     
@@ -282,14 +284,14 @@ class MusicPlayerVC: UIViewController {
         
         let time = event.positionTime
         self.audioSlider.value = Float(time)
-        audioPlayer.currentTime = time
+        self.audioPlayer.currentTime = time
         return MPRemoteCommandHandlerStatus.success;
     }
     
     
     @IBAction func changeAudioLocationSlider(_ sender : UISlider) {
         
-        audioPlayer.currentTime = TimeInterval(sender.value)
+        self.audioPlayer.currentTime = TimeInterval(sender.value)
     }
     
     
@@ -302,50 +304,38 @@ class MusicPlayerVC: UIViewController {
 }
 
 
+//MARK:-Music player portions!!!
 extension MusicPlayerVC{
-    
-    fileprivate func setPlayImageInPlayButton(_ isPlay : Bool){
-        
-        if isPlay{
-            let playImage = UIImage(named: "play")
-            self.btnPlayPause.setImage(playImage, for: UIControl.State())
-            self.btnTopPlayPause.setImage(playImage, for: UIControl.State())
-        }else{
-            let pauseImage = UIImage(named: "pause")
-            self.btnPlayPause.setImage(pauseImage, for: UIControl.State())
-            self.btnTopPlayPause.setImage(pauseImage, for: UIControl.State())
-        }
-    }
     
     fileprivate func createSuffleArrayAndPlaySong(){
         
-        shuffleAudioListIndexArray.append(currentAudioIndex)
-        if shuffleAudioListIndexArray.count >= audioList.count {
+        self.shuffleAudioListIndexArray.append(currentAudioIndex)
+        if self.shuffleAudioListIndexArray.count >= audioList.count {
             //            self.setPlayImageInPlayButton(true)
             //            return
-            shuffleAudioListIndexArray.removeAll()
+            self.shuffleAudioListIndexArray.removeAll()
         }
         
         var randomIndex = 0
         var newIndex = false
         while newIndex == false {
             randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
-            if shuffleAudioListIndexArray.contains(randomIndex) {
+            if self.shuffleAudioListIndexArray.contains(randomIndex) {
                 newIndex = false
             }else{
                 newIndex = true
             }
         }
-        currentAudioIndex = randomIndex
-        prepareAudio()
-        playAudio()
+        self.currentAudioIndex = randomIndex
+        self.prepareAudio()
+        self.playAudio()
     }
     
     
     //Sets audio file URL
     func setCurrentAudioPath(){
-        let currentAudio = self.audioList[currentAudioIndex].songName
-        currentAudioPath = URL(fileURLWithPath: Bundle.main.path(forResource: currentAudio, ofType: "mp3")!)
+        let currentAudio = self.audioList[self.currentAudioIndex].songName
+        self.currentAudioPath = URL(fileURLWithPath: Bundle.main.path(forResource: currentAudio, ofType: "mp3")!)
     }
     
     
@@ -372,12 +362,19 @@ extension MusicPlayerVC{
         
         
         UIApplication.shared.beginReceivingRemoteControlEvents()
-        self.audioPlayer = try! AVAudioPlayer(contentsOf: currentAudioPath)
+        
+        do{
+            self.audioPlayer = try AVAudioPlayer(contentsOf: currentAudioPath)
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+        }catch let error{
+            
+            print(error)
+        }
         self.audioPlayer.delegate = self
         self.audioSlider.maximumValue = CFloat(audioPlayer.duration)
         self.audioSlider.minimumValue = 0.0
         self.audioSlider.value = 0.0
-        self.audioPlayer.prepareToPlay()
         
         let time = calculateTimeFromNSTimeInterval(audioPlayer.duration)
         let totalLengthOfAudio = "\(time.minute):\(time.second)"
@@ -408,8 +405,37 @@ extension MusicPlayerVC{
         self.showMediaInfo()
         _ = audioPlayer.isPlaying ? "\(self.setPlayImageInPlayButton(false), for: UIControl.State()))" : "\(self.setPlayImageInPlayButton(true))"
         MPMusicPlayerController.applicationMusicPlayer.play()
-//        MPRemoteCommandCenter.shared().nex
         
+        let commandCenter = MPRemoteCommandCenter.shared();
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.playCommand.addTarget {event in
+            self.audioPlayer.play()
+            return .success
+        }
+        
+        
+        let infoCenter = MPNowPlayingInfoCenter.default()
+        infoCenter.playbackState = .playing
+    }
+    
+    
+    //MARK:- Lockscreen Media Control
+    // This shows media info on lock screen - used currently and perform controls
+    func showMediaInfo(){
+        let artistName = self.audioList[currentAudioIndex].artistName
+        let songName = self.audioList[currentAudioIndex].songName
+        
+        let albumArt = MPMediaItemArtwork(image: UIImage(named:self.audioList[currentAudioIndex].albumArtwork)!)
+        
+        let currentPlayingControlInfo : [String : Any] = [
+            MPMediaItemPropertyArtist : artistName,
+            MPMediaItemPropertyTitle : songName,
+            MPMediaItemPropertyArtwork: albumArt,
+            MPMediaItemPropertyPlaybackDuration: audioPlayer.duration
+            //            MPNowPlayingInfoPropertyPlaybackRate : self.audioPlayer.currentTime
+        ]
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = currentPlayingControlInfo
     }
     
     func playNextAudio(){
@@ -465,26 +491,6 @@ extension MusicPlayerVC : AVAudioPlayerDelegate{
             
             self.createSuffleArrayAndPlaySong()
         }
-    }
-    
-    
-    //MARK:- Lockscreen Media Control
-    // This shows media info on lock screen - used currently and perform controls
-    func showMediaInfo(){
-        let artistName = self.audioList[currentAudioIndex].artistName
-        let songName = self.audioList[currentAudioIndex].songName
-        
-        let albumArt = MPMediaItemArtwork(image: UIImage(named:self.audioList[currentAudioIndex].albumArtwork)!)
-        
-        let currentPlayingControlInfo : [String : Any] = [
-            MPMediaItemPropertyArtist : artistName,
-            MPMediaItemPropertyTitle : songName,
-            MPMediaItemPropertyArtwork: albumArt,
-            MPMediaItemPropertyPlaybackDuration: audioPlayer.duration
-//            MPNowPlayingInfoPropertyPlaybackRate : self.audioPlayer.currentTime
-        ]
-        
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = currentPlayingControlInfo
     }
     
     override func remoteControlReceived(with event: UIEvent?) {

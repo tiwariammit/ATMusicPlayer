@@ -42,6 +42,8 @@ class MusicListVC: UIViewController {
         
         self.musicPlayerVC = self.storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as? MusicPlayerVC        
     }
+    
+    
 }
 
 
