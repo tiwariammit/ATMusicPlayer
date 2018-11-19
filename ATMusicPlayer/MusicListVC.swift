@@ -18,8 +18,19 @@ class MusicListVC: UIViewController {
         }
     }
 
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblProgress: UILabel!
+    @IBOutlet weak var btnPauseResume: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var btnDownload: UIButton!
+    
     fileprivate var musicPlayerVC : MusicPlayerVC?
-   
+    let downloadManager = DownloadManager.shared()
+    var musicVideoDetails : MusicVideoDetail!
+    
+//    @IBAction func btnTouched(_ sender: Any) {
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +47,20 @@ class MusicListVC: UIViewController {
             strongSelf.setUpMusicPlayerVC()
         }
         
-        let dmManager = DownloadMusicManager.shared()
-        let urlString = "http://freetone.org/ring/stan/iPhone_5-Alarm.mp3"
-        let url = URL(string: urlString)
-        dmManager.download(url!)
+//        let dmManager = DownloadMusicManager.shared()
+//        let urlString = "http://freetone.org/ring/stan/iPhone_5-Alarm.mp3"
+//        let url = URL(string: urlString)
+//        dmManager.downloads(url!)
         
+        self.btnPauseResume.setTitle(DownloadActivity.pause, for: .normal)
+        self.btnCancel.setTitle(DownloadActivity.cancel, for: .normal)
+        self.btnDownload.setTitle(DownloadActivity.download, for: .normal)
+        self.lblProgress.text = DownloadActivity.dowloading
+        self.lblProgress.isHidden = true
+        self.progressView.isHidden = true
+        self.btnCancel.isHidden = true
+        self.btnPauseResume.isHidden = true
+        self.downloadManager.delegate = self
     }
     
     private func setUpMusicPlayerVC(){
@@ -48,6 +68,54 @@ class MusicListVC: UIViewController {
         self.musicPlayerVC = self.storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as? MusicPlayerVC        
     }
     
+    fileprivate func processDownload(){
+        
+        self.progressView.isHidden = false
+        self.lblProgress.isHidden = false
+        self.btnCancel.isHidden = false
+        self.btnPauseResume.isHidden = false
+        self.btnDownload.isHidden = true
+
+        print(self.downloadManager.activeDownloads)
+        
+    }
+    
+    //MARK:-Actions
+    @IBAction func btnDownloadTouched(_ sender: Any){
+        
+        let rawString = "https://mnmott.nettvnepal.com.np/test01/sample_movie.mp4/playlist.m3u8?attachment=true"
+        
+//        let urlString = "https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview118/v4/cd/e2/3c/cde23c28-74d2-5423-dc20-273241983ebc/mzaf_6066839747241472565.plus.aac.p.m4a"
+        
+        let urlString = rawString.replacingOccurrences(of: "/playlist.m3u8", with: "")
+        guard let url = URL(string: urlString) else { return }
+        self.musicVideoDetails = MusicVideoDetail(previewURL: url)
+        self.downloadManager.startDownload(musicVideoDetails)
+        self.processDownload()
+    }
+    
+    @IBAction func btnPauseResumeTouched(_ sender: UIButton){
+        
+        var title = DownloadActivity.pause
+        var status = DownloadActivity.dowloading
+        
+        if(self.btnPauseResume.titleLabel!.text == DownloadActivity.pause) {
+            self.downloadManager.pauseDownload(self.musicVideoDetails)
+            title = DownloadActivity.resume
+            status = DownloadActivity.pause
+        } else {
+            self.downloadManager.resumeDownload(self.musicVideoDetails)
+            title = DownloadActivity.pause
+            status = DownloadActivity.dowloading
+        }
+        
+        self.lblProgress.text = status
+        self.btnPauseResume.setTitle(title, for: UIControl.State())
+    }
+    
+    @IBAction func btnCancelTouched(_ sender: Any){
+        self.downloadManager.cancelDownload(self.musicVideoDetails)
+    }
     
 }
 
@@ -127,5 +195,23 @@ extension MusicListVC {
         
         self.musicPlayerVC?.view.removeFromSuperview()
         self.musicPlayerVC?.removeFromParent()
+    }
+}
+
+extension MusicListVC : DownloadManagerDelegate{
+    func downloadProgressUpdate(_ progress: Float, withFileSize totalSize: String) {
+        self.progressView.progress = progress
+        let progressD =  String(format: "%.1f%% of %@", progress * 100, totalSize)
+        self.lblProgress.text = progressD
+    }
+    
+    func cancelTapped() {
+        self.btnPauseResume.setTitle(DownloadActivity.pause, for: .normal)
+        self.lblProgress.text = DownloadActivity.dowloading
+        self.lblProgress.isHidden = true
+        self.progressView.isHidden = true
+        self.btnCancel.isHidden = true
+        self.btnPauseResume.isHidden = true
+        self.btnDownload.isHidden = false
     }
 }

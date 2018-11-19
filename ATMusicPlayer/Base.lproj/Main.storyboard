@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8fC-2U-bgX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="127" width="375" height="540"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,18 +36,81 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ejf-J2-EBh"/>
                                 </connections>
                             </tableView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SRR-e3-CMR">
+                                <rect key="frame" x="20" y="115" width="240.5" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQS-xm-mwP">
+                                <rect key="frame" x="20" y="79" width="215" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doz-wR-mD2">
+                                <rect key="frame" x="286" y="74" width="69" height="30"/>
+                                <state key="normal" title="Download">
+                                    <color key="titleColor" red="0.602715373" green="0.602715373" blue="0.1114955357" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnDownloadTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pcY-RI-ksX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB5-mt-1mV">
+                                <rect key="frame" x="307" y="74" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.602715373" green="0.602715373" blue="0.1114955357" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCancelTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pC3-cY-oCX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-c0-9E0">
+                                <rect key="frame" x="255" y="74" width="42" height="30"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleColor" red="0.602715373" green="0.602715373" blue="0.1114955357" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPauseResumeTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Yd-9x-QS7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% of 1.35MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4e-WS-MgV">
+                                <rect key="frame" x="270.5" y="109" width="84.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="a4e-WS-MgV" firstAttribute="top" secondItem="cDD-c0-9E0" secondAttribute="bottom" constant="5" id="027-OA-uff"/>
                             <constraint firstItem="8fC-2U-bgX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2IG-Mc-aZF"/>
                             <constraint firstAttribute="trailing" secondItem="8fC-2U-bgX" secondAttribute="trailing" id="3Ro-QV-6fj"/>
-                            <constraint firstItem="8fC-2U-bgX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lq4-hX-qGi"/>
+                            <constraint firstItem="8fC-2U-bgX" firstAttribute="top" secondItem="SRR-e3-CMR" secondAttribute="bottom" constant="10" id="4wn-uH-zD6"/>
+                            <constraint firstItem="vB5-mt-1mV" firstAttribute="centerY" secondItem="cDD-c0-9E0" secondAttribute="centerY" id="7Pu-8A-5zC"/>
+                            <constraint firstItem="a4e-WS-MgV" firstAttribute="leading" secondItem="SRR-e3-CMR" secondAttribute="trailing" constant="10" id="Cae-dS-DxZ"/>
+                            <constraint firstItem="doz-wR-mD2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="DGG-hv-crW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="doz-wR-mD2" secondAttribute="trailing" constant="20" id="IUk-Yi-qEj"/>
+                            <constraint firstItem="KQS-xm-mwP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Jz6-9L-9bg"/>
+                            <constraint firstItem="KQS-xm-mwP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="NKz-ZS-HhV"/>
+                            <constraint firstItem="a4e-WS-MgV" firstAttribute="centerY" secondItem="SRR-e3-CMR" secondAttribute="centerY" id="Utd-ZH-hmm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KQS-xm-mwP" secondAttribute="trailing" constant="140" id="X7r-UK-L0A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a4e-WS-MgV" secondAttribute="trailing" constant="20" id="a18-Nk-8zL"/>
+                            <constraint firstItem="cDD-c0-9E0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="aO4-3R-wjF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vB5-mt-1mV" secondAttribute="trailing" constant="20" id="kkT-Lt-8Be"/>
+                            <constraint firstItem="SRR-e3-CMR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="mHe-KM-Oj5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8fC-2U-bgX" secondAttribute="bottom" id="vwQ-3a-s0j"/>
+                            <constraint firstItem="vB5-mt-1mV" firstAttribute="leading" secondItem="cDD-c0-9E0" secondAttribute="trailing" constant="10" id="xhv-gf-mTn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="SXR-ia-X9i"/>
                     <connections>
+                        <outlet property="btnCancel" destination="vB5-mt-1mV" id="7nM-p5-zKj"/>
+                        <outlet property="btnDownload" destination="doz-wR-mD2" id="hZl-G8-FF5"/>
+                        <outlet property="btnPauseResume" destination="cDD-c0-9E0" id="Ze7-lD-i4a"/>
+                        <outlet property="lblProgress" destination="a4e-WS-MgV" id="gGw-QN-41V"/>
+                        <outlet property="lblTitle" destination="KQS-xm-mwP" id="tC3-VT-9Vo"/>
+                        <outlet property="progressView" destination="SRR-e3-CMR" id="IzY-0a-Val"/>
                         <outlet property="tableView" destination="8fC-2U-bgX" id="9Gv-98-4wJ"/>
                     </connections>
                 </viewController>

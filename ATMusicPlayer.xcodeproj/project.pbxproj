@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F00F8AD6215E2E9E00022047 /* DownloadMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00F8AD5215E2E9E00022047 /* DownloadMusic.swift */; };
+		F00F8AD6215E2E9E00022047 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00F8AD5215E2E9E00022047 /* DownloadManager.swift */; };
 		F01B55842159E38300BC4374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55832159E38300BC4374 /* AppDelegate.swift */; };
 		F01B55862159E38300BC4374 /* MusicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55852159E38300BC4374 /* MusicListVC.swift */; };
 		F01B55892159E38300BC4374 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01B55872159E38300BC4374 /* Main.storyboard */; };
@@ -25,6 +25,8 @@
 		F01B55C42159E58C00BC4374 /* Billie Jean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01B55C12159E58C00BC4374 /* Billie Jean.mp3 */; };
 		F01B55C62159E59600BC4374 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = F01B55C52159E59600BC4374 /* list.plist */; };
 		F01B55C92159E9B800BC4374 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B55C82159E9B800BC4374 /* MusicModel.swift */; };
+		F01EC1DA219D4D8A00D0F959 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01EC1D8219D4D8A00D0F959 /* Download.swift */; };
+		F01EC1DB219D4D8A00D0F959 /* MusicVideoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01EC1D9219D4D8A00D0F959 /* MusicVideoDetail.swift */; };
 		F01F0337215CE4D600E03706 /* Dashain Aayo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01F0336215CE4D600E03706 /* Dashain Aayo.mp3 */; };
 		F01F0339215CE52800E03706 /* Lala Parsad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F01F0338215CE52800E03706 /* Lala Parsad.mp3 */; };
 		F01F033B215CE59700E03706 /* demo4.png in Resources */ = {isa = PBXBuildFile; fileRef = F01F033A215CE59700E03706 /* demo4.png */; };
@@ -49,7 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F00F8AD5215E2E9E00022047 /* DownloadMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadMusic.swift; sourceTree = "<group>"; };
+		F00F8AD5215E2E9E00022047 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		F01B55802159E38300BC4374 /* ATMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01B55832159E38300BC4374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F01B55852159E38300BC4374 /* MusicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListVC.swift; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 		F01B55C12159E58C00BC4374 /* Billie Jean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Billie Jean.mp3"; sourceTree = "<group>"; };
 		F01B55C52159E59600BC4374 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
 		F01B55C82159E9B800BC4374 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
+		F01EC1D8219D4D8A00D0F959 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		F01EC1D9219D4D8A00D0F959 /* MusicVideoDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetail.swift; sourceTree = "<group>"; };
 		F01F0336215CE4D600E03706 /* Dashain Aayo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dashain Aayo.mp3"; sourceTree = "<group>"; };
 		F01F0338215CE52800E03706 /* Lala Parsad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lala Parsad.mp3"; sourceTree = "<group>"; };
 		F01F033A215CE59700E03706 /* demo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo4.png; sourceTree = "<group>"; };
@@ -128,11 +132,12 @@
 		F01B55822159E38300BC4374 /* ATMusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				F01EC1DC219D7A1D00D0F959 /* Download Manager */,
+				F01EC1D7219D4D7100D0F959 /* Model */,
 				F01B55832159E38300BC4374 /* AppDelegate.swift */,
 				F01B55852159E38300BC4374 /* MusicListVC.swift */,
 				F01B55C82159E9B800BC4374 /* MusicModel.swift */,
 				F01B55B72159E50B00BC4374 /* MusicPlayerVC.swift */,
-				F00F8AD5215E2E9E00022047 /* DownloadMusic.swift */,
 				F01B55872159E38300BC4374 /* Main.storyboard */,
 				F01B558D2159E38600BC4374 /* Assets.xcassets */,
 				F01B558F2159E38600BC4374 /* LaunchScreen.storyboard */,
@@ -192,6 +197,23 @@
 				F01F033A215CE59700E03706 /* demo4.png */,
 			);
 			path = Picture;
+			sourceTree = "<group>";
+		};
+		F01EC1D7219D4D7100D0F959 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F01EC1D8219D4D8A00D0F959 /* Download.swift */,
+				F01EC1D9219D4D8A00D0F959 /* MusicVideoDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F01EC1DC219D7A1D00D0F959 /* Download Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F00F8AD5215E2E9E00022047 /* DownloadManager.swift */,
+			);
+			path = "Download Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,8 +366,10 @@
 				F01B55862159E38300BC4374 /* MusicListVC.swift in Sources */,
 				F01B55B82159E50B00BC4374 /* MusicPlayerVC.swift in Sources */,
 				F01B55842159E38300BC4374 /* AppDelegate.swift in Sources */,
-				F00F8AD6215E2E9E00022047 /* DownloadMusic.swift in Sources */,
+				F01EC1DB219D4D8A00D0F959 /* MusicVideoDetail.swift in Sources */,
+				F00F8AD6215E2E9E00022047 /* DownloadManager.swift in Sources */,
 				F01B55C92159E9B800BC4374 /* MusicModel.swift in Sources */,
+				F01EC1DA219D4D8A00D0F959 /* Download.swift in Sources */,
 				F01B558C2159E38300BC4374 /* ATMusicPlayer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
